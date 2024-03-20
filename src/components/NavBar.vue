@@ -38,4 +38,33 @@
     color: black;
     text-decoration: none;
    }
+
+   .favorite_link {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: sans-serif;
+    color: black;
+    text-decoration: none;
+    margin-left: 1rem;
+   }
+
+   @media screen and (max-width: 500px) {
+
+    .home_link, .search_link {
+        font-size: 1rem;
+    }
+    .home_link {
+        margin-right: 45vw;
+    }
+   }
+
+   @media screen and (min-width: 501px) and (max-width: 1030px) {
+
+    .home_link, .search_link {
+    font-size: 1.3rem;
+    }
+    .home_link {
+    margin-right: 45vw;
+    }
+}
 </style>

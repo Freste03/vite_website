@@ -27,31 +27,29 @@
 <template>
     <div class="main">
         <div class="movies" v-for="movie in movies">
-            <div class="content">
-                <img :src="movie.image" alt="">
+                <a :href="movie['imdb_link']" target="_blank"><img :src="movie.image" alt=""></a>
                 <h2>{{ movie.rank }}.</h2>
                 <h3>{{ movie.rating }}</h3>
                 <h1><a :href="movie['imdb_link']"> {{ movie.title}}</a></h1>
                 <p>{{ movie.description }}</p>
-            </div>
         </div>
     </div>
 </template>
 
-<style>
+<style scoped>
     .main {
         height: auto;
         background: black;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(3, 500px);
+        grid-template-rows: repeat(auto-fill, minmax(500px, auto));
     }
 
     .movies {
-        display: inline-block;  
-        align-items: center;
-    }
-
-    .content {
-        width: 400px;
-        min-height: 500px;
+        height: 500px;
+        width: 500px;
         text-align: center;
         margin-top: 25px;
     }
@@ -77,11 +75,30 @@
 
     p {
         color: white;
+        margin: 0 30px 0 30px;
     }
 
     img {
         height: 281px;
         width: 190px;
         border: white solid 1px;
+        border-radius: 5px;
+    }
+
+    @media screen and (max-width: 975px) {
+        .main {
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+
+        .movies {
+            width: 350px;
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        .main {
+            grid-template-columns: repeat(4, 475px);
+        }
     }
 </style>
